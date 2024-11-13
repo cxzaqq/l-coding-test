@@ -85,17 +85,21 @@
       const next = () => {
         if (counter < carouselItems.length - 1) {
           counter++;
-          carouselContent.style.transition = "transform 0.3s ease-in-out";
-          updateCarousel();
+        } else {
+          counter = 0;
         }
+        carouselContent.style.transition = "transform 0.3s ease-in-out";
+        updateCarousel();
       };
 
       const prev = () => {
         if (counter > 0) {
           counter--;
-          carouselContent.style.transition = "transform 0.3s ease-in-out";
-          updateCarousel();
+        } else {
+          counter = carouselItems.length - 1;
         }
+        carouselContent.style.transition = "transform 0.3s ease-in-out";
+        updateCarousel();
       };
 
       updateCarousel();
