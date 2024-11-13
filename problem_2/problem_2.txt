@@ -1,0 +1,41 @@
+School
+- id
+- name
+
+Parent
+- id
+- name
+- phone_num
+
+Hobby
+- id
+- hobby
+
+Student
+- id
+- name
+- phone_num
+- email
+- birth
+- parent_id
+- school_id
+
+Subject
+- id
+- subject
+
+Teacher
+- id
+- name
+- school_id
+- subject_id
+
+Student_Hobby
+- id
+- student_id
+- hobby_id
+
+Student_Teacher
+- id
+- student_id
+- teacher_id

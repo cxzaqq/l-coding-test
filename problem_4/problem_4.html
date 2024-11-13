@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .carousel {
+        overflow: hidden;
+        width: 300px;
+        margin-top: 20px;
+      }
+
+      .carousel-content {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .carousel-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 100px;
+        height: 200px;
+        box-sizing: border-box;
+        padding: 20px;
+        font-size: 24px;
+        background-color: #4a90e2;
+        color: white;
+        border-radius: 8px;
+        margin: 0 10px;
+        opacity: 1;
+        transition: opacity 0.2s;
+      }
+
+      .carousel-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div>
+        <button class="carousel-btn" onclick="prev()">Prev</button>
+        <button class="carousel-btn" onclick="next()">Next</button>
+      </div>
+      <div class="carousel">
+        <div class="carousel-content" id="carouselContent">
+          <div class="carousel-item">One</div>
+          <div class="carousel-item">Two</div>
+          <div class="carousel-item">Three</div>
+          <div class="carousel-item">Four</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const carouselContent = document.getElementById("carouselContent");
+      const carouselItems = document.querySelectorAll(".carousel-item");
+
+      let counter = 0;
+      const itemWidth = carouselItems[0].clientWidth + 20;
+      const carouselWidth = carouselContent.clientWidth;
+
+      const updateCarousel = () => {
+        const offset = (carouselWidth - itemWidth) / 2;
+        carouselContent.style.transform = `translateX(${-(
+          itemWidth * counter -
+          offset
+        )}px)`;
+      };
+
+      const next = () => {
+        if (counter < carouselItems.length - 1) {
+          counter++;
+          carouselContent.style.transition = "transform 0.3s ease-in-out";
+          updateCarousel();
+        }
+      };
+
+      const prev = () => {
+        if (counter > 0) {
+          counter--;
+          carouselContent.style.transition = "transform 0.3s ease-in-out";
+          updateCarousel();
+        }
+      };
+
+      updateCarousel();
+    </script>
+  </body>
+</html>

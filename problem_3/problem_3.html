@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <style>
+      .modal-background {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      .modal .modal-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .modal .modal-close-btn {
+        font-size: 18px;
+        color: #aaa;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .modal .modal-close-btn:hover {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="showModal()">Popup</button>
+    <div class="modal-background">
+      <div class="modal">
+        <div class="modal-title">
+          제목
+          <div class="modal-close-btn" onclick="closeModal()">닫기</div>
+        </div>
+        <div class="modal-content">내용</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const showModal = () => {
+      const modal = document.querySelector(".modal-background");
+      modal.style.display = "block";
+    };
+
+    const closeModal = () => {
+      const modal = document.querySelector(".modal-background");
+      modal.style.display = "none";
+    };
+
+    window.addEventListener("click", (event) => {
+      const modal = document.querySelector(".modal-background");
+      if (event.target === modal) closeModal();
+    });
+  </script>
+</html>
