@@ -11,6 +11,10 @@ Hobby
 - id
 - hobby
 
+Subject
+- id
+- subject
+
 Student
 - id
 - name
@@ -19,10 +23,6 @@ Student
 - birth
 - parent_id
 - school_id
-
-Subject
-- id
-- subject
 
 Teacher
 - id
