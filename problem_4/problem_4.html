@@ -35,8 +35,7 @@
         color: white;
         border-radius: 8px;
         margin: 0 10px;
-        opacity: 1;
-        transition: opacity 0.2s;
+        opacity: 0.5;
       }
 
       .carousel-btn {
@@ -77,6 +76,12 @@
           itemWidth * counter -
           offset
         )}px)`;
+
+        carouselItems.forEach((item, index) => {
+          index === counter
+            ? (item.style.opacity = 1)
+            : (item.style.opacity = 0.5);
+        });
       };
 
       const next = () => {
@@ -85,7 +90,6 @@
         } else {
           counter = 0;
         }
-        carouselContent.style.transition = "transform 0.3s ease-in-out";
         updateCarousel();
       };
 
@@ -95,7 +99,6 @@
         } else {
           counter = carouselItems.length - 1;
         }
-        carouselContent.style.transition = "transform 0.3s ease-in-out";
         updateCarousel();
       };
 
